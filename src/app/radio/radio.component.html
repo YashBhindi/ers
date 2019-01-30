@@ -1,0 +1,9 @@
+<div>
+    <label> {{this.obj.question}}</label>
+    <div *ngFor="let label of obj.labels;let i=index">
+
+      <input type="radio" name="{{obj.name}}" >
+      <label>{{label}}</label>
+    </div>
+
+</div>

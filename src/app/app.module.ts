@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RadioComponent } from './radio/radio.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RadioComponent,
+    TextAreaComponent
   ],
   imports: [
     BrowserModule,
