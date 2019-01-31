@@ -1,23 +1,24 @@
 <div class="container-fluid">
 
   <form [formGroup]="registrationForm" (submit)="onSubmit()" class="card-body px-lg-5 pt-0">
-    <h5 class="card-header info-color white-text text-center py-4" style="color: #757575;">
-      <strong>Sign up </strong>
-    </h5>
-    <label for="mo">Question:</label>
-    <input type="text" id="tx" placeholder="Type the question"  formControlName="question">
-    <label for="mo">Name:</label>
-    <input type="text" id="tx3" placeholder="Enter name"  formControlName="name">
-    <div >
+    <div class="form-group">
+      <label for="mo">Question:</label>
+      <input type="text" class="form-control" id="tx" placeholder="Type the question" formControlName="question">
+    </div>
+    <div class="form-group">
+      <label for="mo">Name:</label>
+      <input type="text" id="tx3" class="form-control" placeholder="Enter name" formControlName="name">
+    </div>
+    <div class="form-group">
       <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addLabel()">Add Label.</button>
       <div formArrayName="labels" *ngFor="let label of labels.controls; let i=index">
-        <div [formGroupName]="i">
-          <input formControlName="option" type="text">
+        <div class="form-group" [formGroupName]="i">
+          <input formControlName="option" class="form-control" type="text">
         </div>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-info my-4 btn-block" >Submit</button>
+    <button type="submit" class="btn btn-info">Ok</button>
   </form>
   {{this.registrationForm.value | json}}
 </div>

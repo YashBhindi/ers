@@ -13,7 +13,7 @@ export class TextAreaComponent implements OnInit {
   }
 
   @Input() obj = {
-    "question" : "",
+    "ques" : "",
     "answer" : ""
   }
 

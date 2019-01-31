@@ -1,14 +1,15 @@
 <div class="container-fluid">
   {{this.registrationForm.value | json}}
   <form [formGroup]="registrationForm" (submit)="onSubmit()" class="card-body px-lg-5 pt-0">
-    <h5 class="card-header info-color white-text text-center py-4" style="color: #757575;">
-      <strong>Sign up </strong>
-    </h5>
+    <div class="form-group">
     <label for="mo">Question:</label>
-    <input type="text" id="tx" placeholder="Type the question"  formControlName="question">
+    <input type="text" id="tx" placeholder="Type the question" class="form-control" formControlName="ques">
+    </div>
+    <div class="form-group">
     <label for="mo3">Answer:</label>
-    <input type="text" id="tx3" placeholder="Answer "  formControlName="answer">
-    <button type="submit"  class="btn btn-info my-4 btn-block">Submit</button>
+    <input type="text" id="tx3" placeholder="Answer" class="form-control"  formControlName="answer">
+  </div>
+  <button type="submit"  class="btn btn-info">Ok</button>
   </form>
   
 </div>

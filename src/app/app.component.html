@@ -1,11 +1,30 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<label>Admin</label>
+<h5 class="card-header info-color white-text text-center py-4" style="color: #757575;">
+    <strong>Template Create</strong>
+</h5>
 
+<h5>
 
-<app-get-radio (display)="appendRadioJson($event)"></app-get-radio>
-<app-get-text (display)="appendTextJson($event)"></app-get-text>
+    <strong>
+        <button class="btn btn-light" (click)="renderRadioComponent()">Add Radio Button</button>
+        <button class="btn btn-light" (click)="renderTextComponent()">Add Text Box</button>
+    </strong>
+</h5>
 
+<form [formGroup]="componentList" (submit)="onSubmit()" class="card-body px-lg-5 pt-0">
+    <div formArrayName="com" *ngFor="let mo of com.controls; let i=index">
+        {{mo.value | json}}
+        <div *ngIf="mo.get('type').value=='radio'" class="border">
+            
+            <app-get-radio (display)="appendRadioJson($event)"></app-get-radio>
+        </div>
+        <div *ngIf="mo.get('type').value=='text'" class="border">
+            
+                <app-get-text (displayText)="appendTextJson($event)"></app-get-text>
+            </div>
+    </div>
+</form>
 
 
 <br>
@@ -14,20 +33,21 @@
 
 
 
+<h5 class="card-header info-color white-text text-center py-4" style="color: #757575;">
+    <strong>Reviewer </strong>
+</h5>
 
-
-<label>Preview</label>
-<div *ngFor="let component of components;let i=index">
+<div class="border" *ngFor="let component of components;let i=index">
     <div *ngIf="component.type=='radio'">
         <app-radio [obj]="component.data"></app-radio>
     </div>
     <div *ngIf="component.type=='text'">
         <app-text-area [obj]="component.data"></app-text-area>
     </div>
-    
-    
+
+
 </div>
-III
+
 
 {{this.components |json}}
 <router-outlet></router-outlet>

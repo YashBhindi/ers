@@ -6,7 +6,7 @@ import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
   styleUrls: ['./get-text.component.css']
 })
 export class GetTextComponent implements OnInit {
-  @Output() display : EventEmitter<any> = new EventEmitter<any>();
+  @Output() displayText : EventEmitter<any> = new EventEmitter<any>();
   registrationForm: FormGroup;
   submitted = false;
   text: FormArray;
@@ -16,8 +16,8 @@ export class GetTextComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
-      question: ["what is your name?"],
-      answer: ["yash"]
+      ques: [],
+      answer: []
     });
   }
   
@@ -30,10 +30,8 @@ export class GetTextComponent implements OnInit {
   onSubmit() {
     console.log("submit");
     this.submitted = true;
-    this.display.emit(this.registrationForm.value);
+    this.displayText.emit(this.registrationForm.value);
 
-    // stop here if form is invalid
-   
 
   }
 }

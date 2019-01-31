@@ -1,25 +1,51 @@
-import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
-
+import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+import {Renderer , ElementRef} from  '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
+
+
 export class AppComponent {
   title = 'ers';
+  components = [  ]
+  componentList : FormGroup;
+  com: FormArray;
+  d1:ElementRef;
+  htmlToAdd ;
+  constructor(private fb: FormBuilder,private renderer:Renderer) {
+    this.componentList = this.fb.group({
+      com: this.fb.array([])
+    });
+   }
 
-
-
-
-  components = [
-
+  renderRadioComponent(){
+    this.com=(this.componentList.get('com') as FormArray);
+    this.com.push(this.fb.group({
+      type : "radio",
+      question: [''],
+      name: [''],
+      labels: this.fb.array([])
+    }));
+   }
+   renderTextComponent(){
+    this.com=(this.componentList.get('com') as FormArray);
+    this.com.push(this.fb.group({
+      type : "text",
+      ques: [],
+      answer: []
+    }));
     
-  ]
+  }
+
   temp = {
     "type": "radio",
       "data": {
-        "question": "",
+        "ques": "",
         "name": "",
         "labels": []
       }
@@ -27,9 +53,8 @@ export class AppComponent {
   temp1 = {
     "type": "text",
       "data": {
-        "question": "",
-        "name": "",
-        "labels": []
+        "ques": "",
+        "answer" : ""
       }
   }
 

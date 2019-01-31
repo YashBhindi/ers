@@ -1,7 +1,20 @@
-<div>
 
 
-<label>{{ this.obj.question}}</label>
-<textarea>{{this.obj.answer}}</textarea>
+
+<div class="container-fluid">
+
+<form  class="card-body px-lg-5 pt-0">
+    <div class="form-group">
+        <label for="mo">Question:</label>
+        <label>{{this.obj.ques}}</label>
+    </div>
+    <div class="form-group">
+        <label for="mo3">Answer:</label>
+        <input type="text" id="mo3" placeholder="Answer" class="form-control" >
+    </div>
+    <button type="submit"  class="btn btn-info">Ok</button>
+</form>
+
+
 
 </div>
