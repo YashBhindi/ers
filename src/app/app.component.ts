@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,37 +11,40 @@ export class AppComponent {
 
 
 
+
   components = [
 
-    {
-      "type": "radio",
-      "data": {
-        "question": "qwewq",
-        "name": "ta",
-        "labels": ["re","qwe"]
-      }          
-    }
-    ,
-    {
-      "type": "text",
-      "data": {
-        "question": "what is your name?",
-        "answer": "yash"
-      }
-    },
-    {
-      "type": "radio",
-      "data": {
-        "question": "coding",
-        "name": "tea",
-        "labels": ["weq","qwew","qwewqe"]
-      }
-    }
+    
   ]
+  temp = {
+    "type": "radio",
+      "data": {
+        "question": "",
+        "name": "",
+        "labels": []
+      }
+  }
+  temp1 = {
+    "type": "text",
+      "data": {
+        "question": "",
+        "name": "",
+        "labels": []
+      }
+  }
 
-
-
-
+  appendRadioJson(dat) {
+    this.temp.data=dat;
+    console.log(dat)
+    this.components.push(this.temp);
+  }
+   
+  appendTextJson(dat) {
+    this.temp1.data=dat;
+    console.log(dat)
+    this.components.push(this.temp1);
+  }
+ 
 
 
 

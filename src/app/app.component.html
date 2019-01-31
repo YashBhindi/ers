@@ -1,5 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
+<label>Admin</label>
+
+
+<app-get-radio (display)="appendRadioJson($event)"></app-get-radio>
+<app-get-text (display)="appendTextJson($event)"></app-get-text>
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+<label>Preview</label>
 <div *ngFor="let component of components;let i=index">
     <div *ngIf="component.type=='radio'">
         <app-radio [obj]="component.data"></app-radio>
@@ -11,4 +28,6 @@
     
 </div>
 III
+
+{{this.components |json}}
 <router-outlet></router-outlet>
