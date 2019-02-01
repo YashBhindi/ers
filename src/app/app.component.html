@@ -11,18 +11,19 @@
         <button class="btn btn-light" (click)="renderTextComponent()">Add Text Box</button>
     </strong>
 </h5>
-
+{{com.value | json}}
 <form [formGroup]="componentList" (submit)="onSubmit()" class="card-body px-lg-5 pt-0">
     <div formArrayName="com" *ngFor="let mo of com.controls; let i=index">
-        {{mo.value | json}}
+
+
         <div *ngIf="mo.get('type').value=='radio'" class="border">
-            
             <app-get-radio (display)="appendRadioJson($event)"></app-get-radio>
         </div>
         <div *ngIf="mo.get('type').value=='text'" class="border">
-            
-                <app-get-text (displayText)="appendTextJson($event)"></app-get-text>
-            </div>
+
+            <app-get-text (displayText)="appendTextJson($event)"></app-get-text>
+        </div>
+
     </div>
 </form>
 

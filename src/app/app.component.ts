@@ -42,32 +42,20 @@ export class AppComponent {
     
   }
 
-  temp = {
-    "type": "radio",
-      "data": {
-        "ques": "",
-        "name": "",
-        "labels": []
-      }
-  }
-  temp1 = {
-    "type": "text",
-      "data": {
-        "ques": "",
-        "answer" : ""
-      }
-  }
-
+  
   appendRadioJson(dat) {
-    this.temp.data=dat;
-    console.log(dat)
-    this.components.push(this.temp);
+    
+    console.log("Components")
+    console.log(this.components)
+    this.components.push({"type" : "radio",
+    "data" : dat});
   }
    
   appendTextJson(dat) {
-    this.temp1.data=dat;
+    
     console.log(dat)
-    this.components.push(this.temp1);
+    this.components.push({"type" : "text",
+    "data" : dat});
   }
  
 
